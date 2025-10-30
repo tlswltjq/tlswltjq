@@ -1,7 +1,18 @@
-# 신지섭
-(+82) 10-6619-9035
-
-wltjq1203@icloud.com
+# 지속 가능한 해결책을 제시하는<br>개발자 신지섭 입니다.
+<table style="border-collapse: collapse; border: none; text-align: left;">
+  <tr>
+    <td style="border: none; padding-right: 16px;">전화번호</td>
+    <td style="border: none; padding-right: 16px;">이메일</td>
+    <td style="border: none;">깃허브</td>
+  </tr>
+  <tr>
+    <td style="border: none; padding-right: 16px;">(+82) 10-6619-9035</td>
+    <td style="border: none; padding-right: 16px;">wltjq1203@icloud.com</td>
+    <td style="border: none;">
+      <a href="https://github.com/tlswltjq">https://github.com/tlswltjq</a>
+    </td>
+  </tr>
+</table>
 
 저는 문제를 빠르게 파악하고, 현실적인 기술적 대안을 제시할 수 있는 개발자입니다.
 
