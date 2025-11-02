@@ -27,20 +27,35 @@
 
 // ----------------------
 // 프로젝트 블록
-#let project_block(org, team, proj_title, period, tech, desc) = grid(
-  columns: (1fr, 3fr),
-  gutter: 1em,
-  [
-    [
-      단체: #org \
-      구성원: #team \
-      제목: #proj_title \
-      기간: #period \
-      기술스택: #tech
+#let project_block(org, team, proj_title, period, tech, desc) = [
+  #grid(
+    columns: (1fr, 3fr),
+    // 열 사이의 간격
+    column-gutter: 2em,
+    
+    // ⬇️ 좌측 칼럼 내용 (3fr) 
+    align(left)[
+      // 프로젝트 제목
+      #text(weight: "bold", 1.1em)[#proj_title]
+      #v(0.5em)
+      
+      // 기타 정보 (팀원, 기간, 기술 스택)
+      #set text(size: 0.9em)
+      // 마크업 블록으로 감싸서 오류 해결
+      #box([
+        // org와 team을 한 줄로 표시
+        text(weight: "bold")[인원:] #h(0.5em) #team \
+        text(weight: "bold")[기간:] #h(0.5em) #period \
+        text(weight: "bold")[기술:] #h(0.5em) #tech
+      ])
     ],
-    #desc 
-  ]
-)
+    
+    // ⬇️ 우측 칼럼 내용 (7fr)
+    align(left)[
+      #desc // 상세 설명 내용
+    ]
+  )
+]
 
 #let projects(..blocks) = [
   #title("프로젝트")
@@ -99,26 +114,15 @@
 
 #projects(
   project_block(
-    "Dubai Chamber",
+    "JobMate",
     "2명",
-    "Supplier Management System",
-    "2024.08 - 2024.10",
+    "IT 진로 탐색 및 멘토링 서비스",
+    "2025.05 - 2025.10",
     "Spring Boot, MySQL, Bootstrap, Apache POI",
     [
       Spring Boot 기반 수출입 Supplier 관리 시스템을 개발했습니다. \
-      뉴스레터 발송, CSV/Excel 내보내기, 첨부 파일 처리 기능을 구현했습니다.
-    ]
-  ),
-  project_block(
-    "Team SafeCare",
-    "4명",
-    "SafeCare App",
-    "2023.09 - 2023.12",
-    "Spring Boot, FCM, Quartz, Redis, AWS",
-    [
-      FCM과 Quartz를 활용해 그룹별 예약 푸시 알림 시스템을 구현했습니다. \
-      JWT 기반 인증과 Redis 세션관리를 통해 효율적인 보안 구조를 설계했습니다.
-    ]
+     뉴스레터 발송, CSV/Excel 내보내기, 첨부 파일 처리 기능을 구현했습니다.
+   ]
   )
 )
 
