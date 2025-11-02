@@ -6,6 +6,7 @@
 #let title(txt) = text(txt, weight: "bold", size: 14pt)
 #let hrule = line(length: 100%, stroke: 1pt + gray)
 #let greeting(txt) = text(txt, weight: "bold", size: 12pt)
+#set text(font: "Pretendard")
 
 // ----------------------
 // 개인정보 (3열)
