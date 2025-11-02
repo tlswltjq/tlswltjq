@@ -57,8 +57,7 @@
 // ----------------------
 // 교육
 #let education_item(program, institution, period, desc) = [
-  // 이탤릭체 오류 수정: _#period_ 대신 #emph(period) 사용
-  bold(program) — #institution \
+  #program — #institution \
   #emph(period) \ 
   #desc
 ]
@@ -66,7 +65,6 @@
 #let education(..items) = [
   #title("교육")
   #hrule
-  // 가변 인수를 배열로 변환: items.pos()
   #for item in items.pos() [
     #item
     #v(0.8em)
