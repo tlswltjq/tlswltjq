@@ -14,7 +14,7 @@
   columns: 3,
   column-gutter: 1em,
   align: center,
-  [#phone], [#email], [#github]
+  [#phone], [#email], [#github],
 )
 
 // ----------------------
@@ -26,17 +26,17 @@
 ]
 
 // ----------------------
-// 프로젝트 블록
-#let project_block(org, proj_title, team, period, tech, desc) = [
+#let project_block(proj_title, org, team, period, tech, desc) = [
   #grid(
     columns: (1fr, 3fr),
     column-gutter: 2em,
-    
+
     align(left)[
-      #text(weight: "bold", 1.1em)[#proj_title]\
+      #text(weight: "bold", 1.1em)[#proj_title]
+      #v(0.2em)
       #text(weight: "bold", 1.1em)[#org]
-      #v(0.5em)
-      
+      #v(0.8em)
+
       #set text(size: 0.9em)
       #box([
         인원: #h(0.5em) #team \
@@ -44,10 +44,10 @@
         기술: #h(0.5em) #tech
       ])
     ],
-    
+
     align(left)[
       #desc
-    ]
+    ],
   )
 ]
 
@@ -55,7 +55,7 @@
   #title("프로젝트")
   #hrule
   #for block in blocks.pos() [
-    #block 
+    #block
     #v(0.8em)
   ]
 ]
@@ -64,7 +64,7 @@
 // 교육
 #let education_item(program, institution, period, desc) = [
   #program — #institution \
-  #emph(period) \ 
+  #emph(period) \
   #desc
 ]
 
@@ -108,29 +108,62 @@
 
 #projects(
   project_block(
-    "프로그래머스",
-    "JobMate \ IT진로 탐색 및 멘토링 서비스",
+    "JobMate\nIT진로 탐색 및 멘토링 서비스",
+    "백엔드 데브코스 팀 프로젝트",
     "2명",
     "2025.05 - 2025.10",
     "Spring Boot, MySQL, Bootstrap, Apache POI",
     [
       == 이벤트기반 영상 업로드, 트랜스코딩, 상태관리 파이프 라인 설계
+      === FFmpeg, python, S3/MinIo, Docker, Kafka
+      - 뉴스 게시글에 영상을 첨부하는 기능을 구현하면서, 대용량 파일 업로드와 트랜스코딩 과정에서 발생하는 서버 스레드 점유와 네트워크 대역폭 낭비 문제를 인식하고, 이를 고려한 구조를 설계했습니다.
 
-      - Spring Boot 기반 수출입 Supplier 관리 시스템을 개발했습니다.
-      - 뉴스레터 발송, CSV/Excel 내보내기, 첨부 파일 처리 기능을 구현했습니다.
-   ]
-  )
+      - 우선 Presigned URL을 사용해 사용자가 직접 업로드하도록 하여 서버의 I/O부하를 제거하였습니다. 이후 FFmpeg 기반의 트랜스코딩 파이프라인을 구축했습니다.
+
+      - FFmpeg를 수행하는 스크립트는 Python으로 작성하고 워커 컨테이너로 실행시켜 CPU, 메모리 사용량이 많은 작업을 스프링 외부에서 처리하고 스프링 서버는 메타데이터 관리와 진행 상태 기록을 담당하도록 했습니다.
+
+      - 일련의 과정은 메시지 이벤트로 제어되어 비동기로 진행되도록 구성했습니다.
+
+      - 이 구조를 통해 서버의 I/O부하를 제거하고, 업로드-트랜스코딩-상태 관리를 자동화한 파이프라인을 구성할 수 있었습니다.
+
+      - 결과적으로 영상처리에 의한 중단 없이 안정적인 서비스 제공이 가능해졌습니다.
+    ],
+  ),
 )
 
 #education(
-  education_item("백엔드 데브코스", "프로그래머스", "2025.05 - 2025.10", "프로그래머스에서 진행하는 백엔드 개발자 과정 부트캠프입니다. 부트캠프중 4번에 걸친 프로젝트 협업을 통해 원만한 협업능력과 개발능력을 함양하였습니다"),
-  education_item("영진전문대학교", "컴퓨터 정보계열, 전문학사", "2020.03 - 2025.03", "기초적인 컴퓨터 지식을 배우고, 다양한 프레임워크를 통한 웹 프로젝트를 수행해 주도적으로 부족한 부분을 탐구하고 매꿨습니다."),
-  education_item("글로벌 인턴십", "TAFE NSW", "2024.09 - 2024.12", "General English Course 를 통해 실무에 필요한 비즈니스 영어를 집중 학습하고 Dubai Chamber의 임원과 SpringBoot 기반의 공급자 지원서 제출 및 관리 웹 서비스 개발하였습니다."),
-  education_item("단기 해외 연수", "Box Hill Institute", "2024.01 - 2024.02", "Short Term Study Tour를 통해 영어의 기초를 다듬고 네트워크, 리눅스 기초학습, TerraForm을 통한 네트워크 실습을 진행했습니다"),
-  education_item("스마트 웹 & 콘텐츠 개발자 양성과정", "예담 직업 전문학교", "2018.05 - 2018.11", "프로그래밍과 웹에 대한 기초지식을 습득하였습니다.")
-  
+  education_item(
+    "백엔드 데브코스",
+    "프로그래머스",
+    "2025.05 - 2025.10",
+    "프로그래머스에서 진행하는 백엔드 개발자 과정 부트캠프입니다. 부트캠프중 4번에 걸친 프로젝트 협업을 통해 원만한 협업능력과 개발능력을 함양하였습니다",
+  ),
+  education_item(
+    "영진전문대학교",
+    "컴퓨터 정보계열, 전문학사",
+    "2020.03 - 2025.03",
+    "기초적인 컴퓨터 지식을 배우고, 다양한 프레임워크를 통한 웹 프로젝트를 수행해 주도적으로 부족한 부분을 탐구하고 매꿨습니다.",
+  ),
+  education_item(
+    "글로벌 인턴십",
+    "TAFE NSW",
+    "2024.09 - 2024.12",
+    "General English Course 를 통해 실무에 필요한 비즈니스 영어를 집중 학습하고 Dubai Chamber의 임원과 SpringBoot 기반의 공급자 지원서 제출 및 관리 웹 서비스 개발하였습니다.",
+  ),
+  education_item(
+    "단기 해외 연수",
+    "Box Hill Institute",
+    "2024.01 - 2024.02",
+    "Short Term Study Tour를 통해 영어의 기초를 다듬고 네트워크, 리눅스 기초학습, TerraForm을 통한 네트워크 실습을 진행했습니다",
+  ),
+  education_item(
+    "스마트 웹 & 콘텐츠 개발자 양성과정",
+    "예담 직업 전문학교",
+    "2018.05 - 2018.11",
+    "프로그래밍과 웹에 대한 기초지식을 습득하였습니다.",
+  ),
 )
 
 #certificates(
-  certificate_item("SQLD", "2024.09", "한국데이터산업진흥원")
+  certificate_item("SQLD", "2024.09", "한국데이터산업진흥원"),
 )
