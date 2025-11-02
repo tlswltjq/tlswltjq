@@ -10,12 +10,12 @@
 // ----------------------
 // 개인정보 (3열)
 // ----------------------
-#let personal_info(phone, email, github) = table(
+#let personal_info(phone, email, github) = grid(
   columns: 3,
+  column-gutter: 1em,
   align: center,
   [#phone], [#email], [#github]
 )
-
 
 // ----------------------
 // 자기소개
