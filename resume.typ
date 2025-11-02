@@ -13,7 +13,7 @@
 #let personal_info(phone, email, github) = table(
   columns: 3,
   align: center,
-  [#phone], [#email], [#github] // 각 요소가 한 셀을 차지
+  [#phone], [#email], [#github]
 )
 
 
@@ -32,22 +32,19 @@
   gutter: 1em,
   [
     [
-      // 경고 제거를 위해 ** 대신 bold() 함수 사용 권장 또는 간결화
-      bold("단체"): #org \
-      bold("구성원"): #team \
-      bold("제목"): #proj_title \
-      bold("기간"): #period \
-      bold("기술스택"): #tech
+      단체: #org \
+      구성원: #team \
+      제목: #proj_title \
+      기간: #period \
+      기술스택: #tech
     ],
     #desc 
   ]
 )
 
-// 여러 프로젝트 묶기 (가변 인수 반복 오류 수정)
 #let projects(..blocks) = [
   #title("프로젝트")
   #hrule
-  // 가변 인수를 배열로 변환: blocks.pos()
   #for block in blocks.pos() [
     #block 
     #v(0.8em)
@@ -81,7 +78,6 @@
 #let certificates(..items) = [
   #title("자격증")
   #hrule
-  // 가변 인수를 배열로 변환: items.pos()
   #for item in items.pos() [
     #item
     #v(0.5em)
