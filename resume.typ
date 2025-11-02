@@ -112,7 +112,7 @@
     "백엔드 데브코스 팀 프로젝트",
     "2명",
     "2025.05 - 2025.10",
-    "Spring Boot, MySQL, Bootstrap, Apache POI",
+    "Spring Boot, MySQL, AWS, Docker",
     [
       == 이벤트기반 영상 업로드, 트랜스코딩, 상태관리 파이프 라인 설계
       === FFmpeg, python, S3/MinIo, Docker, Kafka
