@@ -30,29 +30,22 @@
 #let project_block(org, team, proj_title, period, tech, desc) = [
   #grid(
     columns: (1fr, 3fr),
-    // 열 사이의 간격
     column-gutter: 2em,
     
-    // ⬇️ 좌측 칼럼 내용 (3fr) 
     align(left)[
-      // 프로젝트 제목
       #text(weight: "bold", 1.1em)[#proj_title]
       #v(0.5em)
       
-      // 기타 정보 (팀원, 기간, 기술 스택)
       #set text(size: 0.9em)
-      // 마크업 블록으로 감싸서 오류 해결
       #box([
-        // org와 team을 한 줄로 표시
         text(weight: "bold")[인원:] #h(0.5em) #team \
         text(weight: "bold")[기간:] #h(0.5em) #period \
         text(weight: "bold")[기술:] #h(0.5em) #tech
       ])
     ],
     
-    // ⬇️ 우측 칼럼 내용 (7fr)
     align(left)[
-      #desc // 상세 설명 내용
+      #desc
     ]
   )
 ]
