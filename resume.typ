@@ -76,8 +76,7 @@
 // ----------------------
 // 자격증
 #let certificate_item(name, date, issuer) = [
-  // 이탤릭체 오류 수정: _#date_ 대신 #emph(date) 사용
-  name — #issuer \
+  #name — #issuer \
   #emph(date)
 ]
 
