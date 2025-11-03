@@ -101,7 +101,7 @@
   = 문제를 빠르게 파악하고 함께 성장해나가기 좋은 개발자 \ 신지섭입니다. 반갑습니다
 ])
 
-#personal_info("(+82) 10-6619-9035", "wltjq1203@icloud.com", "github.com/wltjq1203")
+#personal_info("(+82) 10-6619-9035", "wltjq1203@icloud.com", "github.com/tlswltjq")
 
 #introduction([
   = 저는 문제를 빠르게 파악하고, 현실적인 기술적 대안을 제시할 수 있는 개발자입니다.
