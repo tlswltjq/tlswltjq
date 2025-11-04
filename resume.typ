@@ -5,7 +5,10 @@
 // ----------------------
 #let title(txt) = text(txt, weight: "bold", size: 14pt)
 #let hrule = line(length: 100%, stroke: 1pt + gray)
-#let greeting(txt) = text(txt, weight: "bold", size: 12pt)
+#let greeting(txt) = [
+  #text(weight: "bold", size: 12pt)[#txt]
+  #v(0.8em)
+]
 #set text(font: "Pretendard")
 
 // ----------------------
@@ -24,6 +27,7 @@
   #title("자기소개")
   #hrule
   #content
+  #v(0.8em)
 ]
 
 // ----------------------
@@ -98,7 +102,7 @@
 // 실제 내용
 // ----------------------
 #greeting([
-  = 문제를 빠르게 파악하고 함께 성장해나가기 좋은 개발자 \ 신지섭입니다. 반갑습니다
+  = 함께 성장해나가기 좋은 개발자 \ 신지섭입니다.
 ])
 
 #personal_info("(+82) 10-6619-9035", "wltjq1203@icloud.com", "github.com/tlswltjq")
