@@ -52,6 +52,7 @@
 
     align(left)[
       #desc
+      #v(0.8em)
     ],
   )
 ]
@@ -129,7 +130,7 @@
 #projects(
   project_block(
     "JobMate\nIT진로 탐색 및 멘토링 서비스",
-    "백엔드 데브코스 팀 프로젝트",
+    "백엔드 데브코스\n팀 프로젝트",
     "5명",
     "2025.09 - 2025.10",
     "Spring Boot, MySQL, AWS, Docker",
@@ -174,6 +175,24 @@
       - 이에 S3로 전환하고, SNS와 HTTP 이벤트 브릿지 컨테이너 구성을 통해 객체 생성 이벤트를 비동기로 수신하도록 구성했습니다.
 
       - MinIO 기반으로 개발 일정을 유지하면서도, 이후 S3로 자연스럽게 교체 가능한 구조를 완성했습니다.
+    ],
+  ),
+  project_block(
+    "수·출입 지원서\n관리 플랫폼",
+    "Norwegian Australian Chamber of Commerce (NACC)",
+    "2명",
+    "2024.10 - 2024.12",
+    "Spring Boot, Vue",
+    [
+      == 수·출입 지원서 관리 기능
+      - multipart/form-data로 제출된 데이터를 회사·사용자·상품 양식에 맞춰 저장하고, 조건별 검색 기능을 JPA로 구현했습니다.
+      - 저장된 지원서를 CSV·Excel 형식으로 내보낼 수 있도록 Apache POI와 OpenCSV를 활용했습니다.
+
+      == 뉴스레터 발송 기능
+      - Spring Boot Mail Starter와 SMTP를 이용해 뉴스레터 일괄 발송 기능을 구현했습니다.
+
+      == 어드민 페이지 구현
+      - Spring Security 기반의 인증·인가를 적용해 관리자 전용 기능 접근을 제어했습니다.
     ],
   ),
 )
